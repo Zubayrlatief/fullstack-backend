@@ -15,3 +15,31 @@
   app.use('/items', itemsRouter)
 
   app.listen(3000, () => console.log('Server has started'))
+
+
+  // Login section
+
+  
+  app.set('view-engine', 'ejs')
+  app.use(express.urlencoded({ extended: false}))
+
+  // Users are stored in this array
+
+  const users = []
+  
+
+  app.get('/', (req, res) => {
+    res.render('index.ejs', { name: 'zubayr'})
+  })
+
+  app.get('/register', (req,res) => {
+    res.render('register.ejs')
+  })
+
+  app.get('/login', (req,res) => {
+    res.render('login.ejs')
+  })
+
+  app.post('/register', (req,res) =>{
+    req.body.email
+  })

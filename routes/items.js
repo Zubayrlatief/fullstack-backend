@@ -1,13 +1,14 @@
 const express = require('express')
 const router = express.Router()
-const Items = require('../models/items')
+const Item = require('../models/item')
 
 // Getting all items
 router.get('/', async (req, res) => {
     try{
-        const items = await Items.find()
+        const items = await Item.find()
+        res.json(items)
     } catch(err){
-        res.json({ message: err.message})
+        res.status(500).json({ message: err.message})
     }
 })
 
